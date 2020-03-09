@@ -7,10 +7,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Save implements Runnable {
     private static JavaPlugin plugin;
-    private static long hourDelay = 60 * 60 * 60 * 20;
+    private static long hourDelay = 60 * 60 * 20;
 
-    public static void initialize(JavaPlugin pl) {
+    public void initialize(JavaPlugin pl) {
         plugin = pl;
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this, hourDelay);
     }
 
     public static void saveNow() {
